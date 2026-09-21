@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from server.db.database import init_db
-
+from server.routes.missions import router as missions_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -37,3 +37,5 @@ def dead_root():
         "status": "ok",
         "message": "The dojo is operational."
     }
+
+app.include_router(missions_router)
