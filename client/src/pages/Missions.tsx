@@ -8,7 +8,6 @@ export const Missions = () => {
     const [missions, setMissions] = useState<Mission[]>([]);
     const [error, setError] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState(true);
-
     useEffect(() => {
         const fetchMissions = async () => {
             setIsLoading(true);
@@ -33,7 +32,7 @@ export const Missions = () => {
     if (error) {
         return <p>{error}</p>
     }
-
+    
     return (
         <div className="missions-page">
             <div className="missions-container">

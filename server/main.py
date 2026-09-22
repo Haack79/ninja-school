@@ -38,4 +38,4 @@ def dead_root():
         "message": "The dojo is operational."
     }
 
-app.include_router(missions_router)
+app.include_router(missions_router, prefix="/api")
