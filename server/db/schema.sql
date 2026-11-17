@@ -51,7 +51,21 @@ CREATE TABLE IF NOT EXISTS ninja_attributes (
         ON DELETE CASCADE
 );
 
+-- =========================================
+-- auth
+-- ===============\
+CREATE TABLE IF NOT EXISTS sessions (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,
+    token TEXT NOT NULL UNIQUE,
+    expires_at TIMESTAMP NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
+    FOREIGN KEY (user_id) REFERENCES users(id)
+        ON DELETE CASCADE
+);
+
+CREATE INDEX IF NOT EXISTS idx_sessions_token ON sessions(token);
 -- =========================================
 -- STYLES
 -- Available visual styles
