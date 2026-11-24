@@ -40,3 +40,4 @@ def dead_root():
     }
 
 app.include_router(missions_router, prefix="/api")
+app.include_router(auth_router, prefix="/api")
